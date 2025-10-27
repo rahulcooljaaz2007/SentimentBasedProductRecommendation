@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sentiment Based Product Recommendation</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+
+  <!-- Google Font: Nunito Sans (clean & compact) -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent-start: #20c997; /* teal green */
+      --accent-end: #2ecc71;   /* emerald green */
+    }
+
+    body {
+      font-family: "Nunito Sans", sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      padding-top: 80px;
+      transition: 0.3s ease;
+    }
+
+    .navbar {
+      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #fff !important;
+      letter-spacing: 0.3px;
+    }
+
+    .container {
+      max-width: 650px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-size: 0.92rem;
+    }
+
+    .form-control {
+      background-color: #fff;
+      border: 1px solid #dcdfe3;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-start);
+      box-shadow: 0 0 5px rgba(32, 201, 151, 0.4);
+    }
+
+    .btn-custom {
+      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      padding: 9px;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(90deg, var(--accent-end), var(--accent-start));
+    }
+
+    table {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background-color: #f1f3f6;
+      color: #333;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    td {
+      vertical-align: middle;
+    }
+
+    tr:hover {
+      background-color: #f9fafc;
+    }
+
+    caption {
+      caption-side: top;
+      color: #666;
+      font-size: 0.85rem;
+      text-align: left;
+      padding: 0.5rem 0;
+    }
+
+    footer {
+      background-color: #ffffff;
+      color: #777;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 50px;
+      padding: 15px 0;
+      font-size: 0.85rem;
+    }
+
+    .alert {
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    small {
+      color: #6c757d !important;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar fixed-top navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">🌿 Sentiment Product Recommender</a>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="card p-4">
+      <form action="/recomendedProducts" method="post">
+        <div class="mb-3">
+          <input
+            class="form-control"
+            type="text"
+            id="userName"
+            name="userName"
+            placeholder="🔍 Enter username to search..."
+          />
+          <small class="form-text">
+            Try usernames like <code>06stidriver</code>, <code>02deuce</code>, <code>123charlie</code> etc.
+          </small>
+        </div>
+        <input type="submit" class="btn btn-custom w-100" value="Get Recommendations" />
+
+        {% if row_data %}
+        <table class="table table-striped mt-4 align-middle">
+          <caption>Top 5 Recommended Products</caption>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Brand</th>
+              <th>Manufacturer</th>
+              <th>Recommendation %</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in row_data %}
+            <tr>
+              {% for col, row_ in zip(column_names, row) %}
+              <td>{{ row_ }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+
+        {% if message %}
+        <div class="alert alert-danger mt-3" role="alert">{{ message }}</div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+  <footer class="text-center">
+    <div class="container">
+      Created by <strong>C68 GenAi: Rahul Srivastava</strong>
+    </div>
+  </footer>
+</body>
+</html>
