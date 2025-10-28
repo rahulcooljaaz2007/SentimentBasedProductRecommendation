@@ -108,4 +108,4 @@ What needs to be submitted for the evaluation of the project?
 * Collaborative Filtering Recommender System: Utilizing both User-User and Item-Item approaches, a recommender system is developed. Evaluation is performed using the RMSE metric.
 SentimentBasedProductRecommendation.ipynb: This Jupyter notebook contains the code for Sentiment Classification and Recommender Systems.
 * Product Sentiment Prediction: Top 20 products are filtered using the recommender system. For each product, user_sentiment is predicted for all reviews, and the top 5 products with higher positive user sentiment are selected (model.py).
-* Model Persistence and Deployment: Machine Learning models are saved in pickle files within the pickle directory. A Flask API (app.py) is developed to interface and test these models. The User Interface is set up using Bootstrap and Flask Jinja templates (templates/index.html) without additional custom styles.
+* Model Persistence and Deployment: Machine Learning models are saved in pickle files within the pickle directory. A Flask API (app.py) is developed to interface and test these models.
