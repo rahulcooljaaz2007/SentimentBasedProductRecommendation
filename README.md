@@ -55,3 +55,46 @@ As you learnt earlier, you can use the following types of recommendation systems
 
 1. User-based recommendation system
 2. Item-based recommendation system
+
+Your task is to analyse the recommendation systems and select the one that is best suited in this case. 
+
+ 
+
+Once you get the best-suited recommendation system, the next task is to recommend 20 products that a user is most likely to purchase based on the ratings. You can use the 'reviews_username' (one of the columns in the dataset) to identify your user. 
+
+ 
+
+### Improving the recommendations using the sentiment analysis model
+Now, the next task is to link this recommendation system with the sentiment analysis model that was built earlier (recall that we asked you to select one ML model out of the four options). Once you recommend 20 products to a particular user using the recommendation engine, you need to filter out the 5 best products based on the sentiments of the 20 recommended product reviews. 
+
+ 
+
+In this way, you will get an ML model (for sentiments) and the best-suited recommendation system. Next, you need to deploy the entire project publically.
+
+ 
+
+### Deployment of this end to end project with a user interface
+Once you get the ML model and the best-suited recommendation system, you will deploy the end-to-end project. You need to use the Flask framework, which is majorly used to create web applications to deploy machine learning models.
+
+Add the screenshots and screen recording  of  locally deployed aplication. 
+Include the following features in the user interface.
+
+- Take any of the existing usernames as input.
+- Create a submit button to submit the username.
+- Once you press the submit button, it should recommend 5 products based on the entered username.
+
+Note: An important point that you need to consider here is that the number of users and the number of products are fixed in this case study, and you are doing the sentiment analysis and building the recommendation system only for those users who have already submitted the reviews or ratings corresponding to some of the products in the dataset. 
+
+
+### Assumption: No new users or products will be introduced or considered when building or predicting from the models built.
+
+ 
+
+What needs to be submitted for the evaluation of the project?
+
+- An end-to-end Jupyter Notebook, which consists of the entire code (data cleaning steps, text preprocessing, feature extraction, ML models used to build sentiment analysis models, two recommendation systems and their evaluations, etc.) of the problem statement defined
+# The following deployment files
+- One 'model.py' file, which should contain only one ML model and only one recommendation system that you have obtained from the previous steps along with the entire code to deploy the end-to-end project using Flask and Heroku
+- 'index.html' file, which includes the HTML code of the user interface
+- 'app.py' file, which is the Flask file to connect the backend ML model with the frontend HTML code
+- Supported pickle files, which have been generated while pickling the models
