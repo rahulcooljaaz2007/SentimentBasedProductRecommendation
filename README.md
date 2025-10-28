@@ -98,3 +98,14 @@ What needs to be submitted for the evaluation of the project?
 - 'index.html' file, which includes the HTML code of the user interface
 - 'app.py' file, which is the Flask file to connect the backend ML model with the frontend HTML code
 - Supported pickle files, which have been generated while pickling the models
+
+### Solution Approach
+
+* The dataset and attribute descriptions are provided in the dataset folder for reference.
+* Initial steps include Data Cleaning, Visualization, and Text Preprocessing  on the dataset. 
+* Addressing the Class Imbalance Issue: SMOTE Oversampling technique is applied to balance the distribution of classes before model training.
+* Machine Learning Classification Models: Various models such as Logistic Regression, Naive Bayes, Decision Tree, Random Forest, ADA boost and XGBoost are trained on the vectorized data and target column (user_sentiment). The objective is to classify sentiment as positive (1) or negative (0). The best model is chosen based on evaluation metrics including Accuracy, Precision, Recall, F1 Score, and AUC. XGBoost is selected  as it shows more promissing metrics.
+* Collaborative Filtering Recommender System: Utilizing both User-User and Item-Item approaches, a recommender system is developed. Evaluation is performed using the RMSE metric.
+SentimentBasedProductRecommendation.ipynb: This Jupyter notebook contains the code for Sentiment Classification and Recommender Systems.
+* Product Sentiment Prediction: Top 20 products are filtered using the recommender system. For each product, user_sentiment is predicted for all reviews, and the top 5 products with higher positive user sentiment are selected (model.py).
+* Model Persistence and Deployment: Machine Learning models are saved in pickle files within the pickle directory. A Flask API (app.py) is developed to interface and test these models. The User Interface is set up using Bootstrap and Flask Jinja templates (templates/index.html) without additional custom styles.
