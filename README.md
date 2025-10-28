@@ -42,8 +42,9 @@ In order to extract features from the text data, you may choose from any of the 
 You need to build at least three ML models. You then need to analyse the performance of each of these models and choose the best model. At least three out of the following four models need to be built (Do not forget, if required, handle the class imbalance and perform hyperparameter tuning.). 
 1. Logistic regression
 2. Random forest
-3. XGBoost
-4. Naive Bayes
+3. ADA Boost
+4. XGBoost
+5. Naive Bayes
 
 Out of these four models, you need to select one classification model based on its performance.
 
