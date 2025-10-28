@@ -109,3 +109,9 @@ What needs to be submitted for the evaluation of the project?
 SentimentBasedProductRecommendation.ipynb: This Jupyter notebook contains the code for Sentiment Classification and Recommender Systems.
 * Product Sentiment Prediction: Top 20 products are filtered using the recommender system. For each product, user_sentiment is predicted for all reviews, and the top 5 products with higher positive user sentiment are selected (model.py).
 * Model Persistence and Deployment: Machine Learning models are saved in pickle files within the pickle directory. A Flask API (app.py) is developed to interface and test these models.
+
+### Commands to install the project 
+1) install dependencies : pip install -r requirements.txt
+2) start flask project : python app.py
+3) application will start at http://localhost:5000/
+4) open browser and launch the app using http://localhost:5000/ in address bar 
